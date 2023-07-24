@@ -1,22 +1,30 @@
 import React from "react";
-import { StyledInput, StyledTextArea } from "./styles";
+import { StyledInput, StyledTextArea, Error } from "./styles";
 
-const Input = ({ name, type, label, onChange }) => {
+const Input = ({ name, type, label, onChange, errorMessage }) => {
   return type === "text-area" ? (
-    <StyledTextArea
-      name={name}
-      type={type}
-      placeholder={label}
-      onChange={onChange}
-      rows="15"
-    />
+    <div>
+      <StyledTextArea
+        name={name}
+        type={type}
+        placeholder={label}
+        onChange={onChange}
+        rows="15"
+        hasError={!!errorMessage}
+      />
+      {errorMessage && <Error>{errorMessage}</Error>}
+    </div>
   ) : (
-    <StyledInput
-      name={name}
-      type={type}
-      placeholder={label}
-      onChange={onChange}
-    />
+    <div>
+      <StyledInput
+        name={name}
+        type={type}
+        placeholder={label}
+        onChange={onChange}
+        hasError={!!errorMessage}
+      />
+      {errorMessage && <Error>{errorMessage}</Error>}
+    </div>
   );
 };
 
