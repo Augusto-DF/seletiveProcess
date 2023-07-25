@@ -8,5 +8,5 @@ export const StyledButton = styled.button`
   font-weight: bold;
   border-radius: 20px;
   border-color: transparent;
-  justify-self: end;
+  justify-self: ${({ justifyEnd }) => (justifyEnd ? "end" : "start")};
 `;

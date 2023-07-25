@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledInput, StyledTextArea, Error } from "./styles";
+import { StyledInput, StyledTextArea, Error, InputContainer } from "./styles";
 
 const Input = ({
   name,
@@ -10,7 +10,7 @@ const Input = ({
   value = undefined,
 }) => {
   return type === "text-area" ? (
-    <div>
+    <InputContainer>
       <StyledTextArea
         name={name}
         type={type}
@@ -21,9 +21,9 @@ const Input = ({
         value={value ?? value}
       />
       {errorMessage && <Error>{errorMessage}</Error>}
-    </div>
+    </InputContainer>
   ) : (
-    <div>
+    <InputContainer>
       <StyledInput
         name={name}
         type={type}
@@ -33,7 +33,7 @@ const Input = ({
         value={value ?? value}
       />
       {errorMessage && <Error>{errorMessage}</Error>}
-    </div>
+    </InputContainer>
   );
 };
 

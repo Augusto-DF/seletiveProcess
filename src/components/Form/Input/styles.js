@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const InputContainer = styled.div`
+  grid-column: 1 / -1;
+`;
+
 export const StyledInput = styled.input`
   width: 520px;
   height: 50px;
