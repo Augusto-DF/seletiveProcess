@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  
   "scripts": {
     "start": "npx webpack-dev-server --mode development --open --hot",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -16,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/Augusto-DF/seletiveProcess/issues"
   },
-  "homepage": "https://github.com/Augusto-DF/seletiveProcess#readme",
+  "homepage": "https://github-username.github.io/seletiveProcess",
   "devDependencies": {
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.20.2",
@@ -25,6 +29,7 @@
     "babel-loader": "^9.1.0",
     "css-loader": "^6.7.1",
     "file-loader": "^6.2.0",
+    "gh-pages": "^5.0.0",
     "raw-loader": "^4.0.2",
     "style-loader": "^3.3.1",
     "webpack": "^5.74.0",
