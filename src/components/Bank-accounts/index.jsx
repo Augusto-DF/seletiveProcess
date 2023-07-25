@@ -24,7 +24,7 @@ export class BankAccount extends React.Component {
   }
 
   withdrawing(value) {
-    if (value > 0.0) this.balance -= value;
+    if (value > 0.0 && value <= this.balance) this.balance -= value;
   }
 
   state = {
@@ -46,13 +46,22 @@ export class BankAccount extends React.Component {
   }
 
   onWithdrawing() {
-    this.withdrawing(Number(this.state.withdrawing));
-    if (Number(this.state.withdrawing) > 0)
+    if (Number(this.state.withdrawing > this.balance))
       this.setState((prevState) => ({
         ...prevState,
         withdrawing: 0,
         wasWithdrawing: true,
+        error: "You don't have this amount",
       }));
+    else if (Number(this.state.withdrawing) > 0) {
+      this.withdrawing(Number(this.state.withdrawing));
+      this.setState((prevState) => ({
+        ...prevState,
+        withdrawing: 0,
+        wasWithdrawing: true,
+        error: null,
+      }));
+    }
   }
 
   onChange({ target: { name, value } }) {
@@ -70,8 +79,8 @@ export class BankAccount extends React.Component {
           value={this.state.depositing}
         />
         <ResultContainer hasMessage={!!this.state.wasDepositing}>
-          {this.state.wasDepositing && <Message>Amount deposited</Message>}
           <Button label="Deposit" onClick={this.onDeposit} />
+          {this.state.wasDepositing && <Message>Amount deposited</Message>}
         </ResultContainer>
 
         <Input
@@ -82,15 +91,13 @@ export class BankAccount extends React.Component {
           value={this.state.withdrawing}
         />
         <ResultContainer hasMessage={!!this.state.wasWithdrawing}>
-          {this.state.wasWithdrawing && (
-            <Message>Amount to withdrawing</Message>
-          )}
           <Button label="Withdrawing" onClick={this.onWithdrawing} />
+          {this.state.wasWithdrawing && !this.state.error && (
+            <Message>Amount withdraw</Message>
+          )}
+          {this.state.error && <Message>{this.state.error}</Message>}
         </ResultContainer>
         <ResultContainer hasMessage={!!this.state.showBalance}>
-          {this.state.showBalance && (
-            <Message>{`${this.getBalance()} ($)`}</Message>
-          )}
           <Button
             label={this.state.showBalance ? "Hide balance" : "Show balance"}
             onClick={() =>
@@ -100,6 +107,10 @@ export class BankAccount extends React.Component {
               }))
             }
           />
+
+          {this.state.showBalance && (
+            <Message>{`${this.getBalance()} ($)`}</Message>
+          )}
         </ResultContainer>
       </>
     );
@@ -125,19 +136,16 @@ export class SavingAccount extends BankAccount {
   render() {
     return (
       <>
-        {super.render()}
         <ResultContainer hasMessage>
-          <ResultContainer hasMessage>
-            <Message type="message">Type of Account:</Message>
-            {this.state.showType && <Message>{this.type}</Message>}
-          </ResultContainer>
           <Button
             label={
               this.state.showType ? "Hide account type" : "Show account type"
             }
             onClick={this.onCheckType}
           />
+          {this.state.showType && <Message> {this.type}</Message>}
         </ResultContainer>
+        {super.render()}
       </>
     );
   }
@@ -162,19 +170,16 @@ export class CheckingAccount extends BankAccount {
   render() {
     return (
       <>
-        {super.render()}
         <ResultContainer hasMessage>
-          <ResultContainer hasMessage>
-            <Message type="message">Type of Account:</Message>
-            {this.state.showType && <Message>{this.type}</Message>}
-          </ResultContainer>
           <Button
             label={
               this.state.showType ? "Hide account type" : "Show account type"
             }
             onClick={this.onCheckType}
           />
+          {this.state.showType && <Message> {this.type}</Message>}
         </ResultContainer>
+        {super.render()}
       </>
     );
   }
