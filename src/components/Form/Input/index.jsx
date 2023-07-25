@@ -8,6 +8,7 @@ const Input = ({
   onChange,
   errorMessage = null,
   value = undefined,
+  accept,
 }) => {
   return type === "text-area" ? (
     <InputContainer>
@@ -31,6 +32,7 @@ const Input = ({
         onChange={onChange}
         hasError={!!errorMessage}
         value={value ?? value}
+        accept={accept}
       />
       {errorMessage && <Error>{errorMessage}</Error>}
     </InputContainer>

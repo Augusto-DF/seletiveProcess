@@ -7,6 +7,7 @@ import Factorial from "./components/Factorial";
 import Palindrome from "./components/Palindrome";
 import Fibonacci from "./components/Fibonacci";
 import Stack from "./components/Stack";
+import FileReader from "./components/File-reader";
 
 const App = () => {
   return (
@@ -21,6 +22,8 @@ const App = () => {
       <Stack />
       <TitleSection label="Bank Accounts" />
       <BankAccounts />
+      <TitleSection label="File Reader" />
+      <FileReader />
       <TitleSection label="Fibonacci Sequence" />
       <Fibonacci />
     </Container>

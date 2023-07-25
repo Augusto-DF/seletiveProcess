@@ -22,6 +22,17 @@ module.exports = {
         use: ["file-loader"],
       },
       {
+        test: /\.txt$/i,
+        use: [
+          {
+            loader: "raw-loader",
+            options: {
+              esModule: false,
+            },
+          },
+        ],
+      },
+      {
         test: /\.svg$/,
         use: [
           {
