@@ -8,25 +8,25 @@ import Palindrome from "./components/Palindrome";
 import Fibonacci from "./components/Fibonacci";
 import Stack from "./components/Stack";
 import FileReader from "./components/File-reader";
+import Navbar from "./components/Navbar";
+import { Route, Routes } from "react-router-dom";
 
 const App = () => {
   return (
-    <Container>
-      <TitleSection label="Factorial" />
-      <Factorial />
-      <TitleSection label="Palindrome" />
-      <Palindrome />
-      <TitleSection label="Contact Form" />
-      <Form />
-      <TitleSection label="Stack" />
-      <Stack />
-      <TitleSection label="Bank Accounts" />
-      <BankAccounts />
-      <TitleSection label="File Reader" />
-      <FileReader />
-      <TitleSection label="Fibonacci Sequence" />
-      <Fibonacci />
-    </Container>
+    <>
+      <Navbar />
+      <Container>
+        <Routes>
+          <Route path="/" element={<Factorial />} />
+          <Route path="palindrome" element={<Palindrome />} />
+          <Route path="/contact-form" element={<Form />} />
+          <Route path="/stack" element={<Stack />} />
+          <Route path="/bank-accounts" element={<BankAccounts />} />
+          <Route path="/file-reader" element={<FileReader />} />
+          <Route path="/fibonacci-sequence" element={<Fibonacci />} />
+        </Routes>
+      </Container>
+    </>
   );
 };
 

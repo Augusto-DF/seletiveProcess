@@ -8,9 +8,7 @@ createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <GlobalStyle />
-      <Routes>
-        <Route path="/" element={<App />} />
-      </Routes>
+      <App />
     </BrowserRouter>
   </React.StrictMode>
 );
