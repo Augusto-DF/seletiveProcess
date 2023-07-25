@@ -5,6 +5,7 @@ import { Container } from "./styles/styles";
 import BankAccounts from "./components/Bank-accounts";
 import Factorial from "./components/Factorial";
 import Palindrome from "./components/Palindrome";
+import Fibonacci from "./components/Fibonacci";
 
 const App = () => {
   return (
@@ -17,6 +18,8 @@ const App = () => {
       <Form />
       <TitleSection label="Bank Accounts" />
       <BankAccounts />
+      <TitleSection label="Fibonacci Sequence" />
+      <Fibonacci />
     </Container>
   );
 };
