@@ -45,7 +45,7 @@ class SavingAccount extends BankAccout {
     return this.type;
   }
 
-  getBalance() {
+  /*  getBalance() {
     return super.getBalance();
   }
 
@@ -55,7 +55,7 @@ class SavingAccount extends BankAccout {
 
   withDrawing(value) {
     super.withDrawing(value);
-  }
+  } */
 }
 
 class CheckingAccount extends BankAccout {
@@ -68,7 +68,7 @@ class CheckingAccount extends BankAccout {
     return this.type;
   }
 
-  getBalance() {
+  /*  getBalance() {
     return super.getBalance();
   }
 
@@ -78,10 +78,11 @@ class CheckingAccount extends BankAccout {
 
   withDrawing(value) {
     super.withDrawing(value);
-  }
+  } */
 }
 
 let l = new CheckingAccount(15222.0);
 let k = new SavingAccount(123321.0);
 console.log("l", l.getType());
+console.log("l", l.getBalance());
 console.log("k", k.getType());

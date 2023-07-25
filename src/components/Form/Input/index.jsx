@@ -1,7 +1,14 @@
 import React from "react";
 import { StyledInput, StyledTextArea, Error } from "./styles";
 
-const Input = ({ name, type, label, onChange, errorMessage }) => {
+const Input = ({
+  name,
+  type,
+  label,
+  onChange,
+  errorMessage = null,
+  value = undefined,
+}) => {
   return type === "text-area" ? (
     <div>
       <StyledTextArea
@@ -11,6 +18,7 @@ const Input = ({ name, type, label, onChange, errorMessage }) => {
         onChange={onChange}
         rows="15"
         hasError={!!errorMessage}
+        value={value ?? value}
       />
       {errorMessage && <Error>{errorMessage}</Error>}
     </div>
@@ -22,6 +30,7 @@ const Input = ({ name, type, label, onChange, errorMessage }) => {
         placeholder={label}
         onChange={onChange}
         hasError={!!errorMessage}
+        value={value ?? value}
       />
       {errorMessage && <Error>{errorMessage}</Error>}
     </div>
