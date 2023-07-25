@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../Form/Button";
 import Input from "../Form/Input";
 import { Container, Message, ResultContainer } from "./styles";
+import TitleSection from "../Title-section";
 
 export class BankAccount extends React.Component {
   constructor(props) {
@@ -189,6 +190,7 @@ const BankAccounts = () => {
   return (
     <>
       <Container>
+        <TitleSection label="Bank Accounts" />
         <SavingAccount balance={10} />
       </Container>
       <Container>

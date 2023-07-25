@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Input from "../Form/Input";
 import Button from "../Form/Button";
 import { Container, Display } from "./styles";
+import TitleSection from "../Title-section";
 
 /**
  * Calculate what's the nth number in the Fibonacci sequence.
@@ -23,6 +24,7 @@ const Fibonacci = () => {
   const onClick = () => setResult(fibonacci(value));
   return (
     <Container>
+      <TitleSection label="Fibonacci Sequence" />
       <Input
         name="fibonacci"
         type="number"

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Input from "../Form/Input";
 import { Container } from "./styles";
+import TitleSection from "../Title-section";
 
 const FileReaderComponent = () => {
   const [fileState, setFileState] = useState({
@@ -45,6 +46,7 @@ const FileReaderComponent = () => {
 
   return (
     <Container>
+      <TitleSection label="File Reader" />
       <Input type="file" accept=".txt" onChange={readFile} />
       <Container>
         <span>Words count {fileState.totalOfWords}</span>

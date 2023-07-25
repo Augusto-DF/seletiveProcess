@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Input from "../Form/Input";
 import Button from "../Form/Button";
 import { ButtonContainer, Container, StyledStack } from "./styles";
+import TitleSection from "../Title-section";
 
 class myStack {
   constructor() {
@@ -61,6 +62,7 @@ const Stack = () => {
 
   return (
     <Container>
+      <TitleSection label="Stack" />
       <Input
         ref={input}
         type="text"

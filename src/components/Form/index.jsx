@@ -3,6 +3,7 @@ import Input from "./Input";
 
 import { DataField, DisplayContainer, StyledForm, StyledLabel } from "./styles";
 import Button from "./Button";
+import TitleSection from "../Title-section";
 
 const INITIAL_STATE = {
   name: "",
@@ -74,6 +75,7 @@ const Form = () => {
   return (
     <>
       <StyledForm>
+        <TitleSection label="Contact Form" />
         <Input
           name="name"
           type="text"

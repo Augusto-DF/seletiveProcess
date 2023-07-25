@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Input from "../Form/Input";
 import Button from "../Form/Button";
 import { Container, Display } from "./styles";
+import TitleSection from "../Title-section";
 
 /**
  * @description Calculate the factorial of a integer number ( recursive version ).
@@ -24,6 +25,7 @@ const Factorial = () => {
   const onClick = () => setResult(factorial(value));
   return (
     <Container>
+      <TitleSection label="Factorial" />
       <Input
         name="factorial"
         type="number"

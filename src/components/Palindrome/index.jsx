@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Input from "../Form/Input";
 import Button from "../Form/Button";
 import { Container, Display } from "./styles";
+import TitleSection from "../Title-section";
 
 /**
  * @description Verify if a string is a palindrome. ( recursive version )
@@ -37,6 +38,7 @@ const Palindrome = () => {
   const onClick = () => setResult(palindrome(value));
   return (
     <Container>
+      <TitleSection label="Palindrome" />
       <Input
         name="palindrome"
         type="text"
